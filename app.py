@@ -68,27 +68,6 @@ if password == correct_password:
     
             st.write(speaker + ": " + message["content"])
 
-    import csv
-    
-    # 会話ログをCSVファイルに保存する関数
-    def save_conversation_to_csv(conversation, filename):
-        with open(filename, mode='w', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerow(["Role", "Message"])  # ヘッダー行を書き込む
-            for message in conversation:
-                writer.writerow([message["role"], message["content"]])
-    
-    # 会話ログを取得
-    if st.session_state["messages"]:
-        messages = st.session_state["messages"]
-    
-    # CSVファイルに保存
-    # カスタマイズされた保存場所
-    save_path = '"C:\Users\yumem\OneDrive\デスクトップ\mieai\mieai.csv"'
-    save_conversation_to_csv(messages[1:], save_path)
-
-
-
 else:
     # パスワードが間違っている場合のメッセージを表示
     st.write("パスワードが正しくありません。アプリにアクセスするために正しいパスワードを入力してください。")
