@@ -2,7 +2,7 @@
 import streamlit as st
 import openai
 
-openai_api_key = st.secrets.OpenAIAPI.openai_api_key
+openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 
 # パスワードを設定
 #correct_password = st.secrets.mieai_pw.correct_password
