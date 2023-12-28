@@ -2,17 +2,19 @@
 import streamlit as st
 import openai
 
-openai.api_key = st.secrets.OpenAIAPI.openai_api_key
+
 
 # パスワードを設定
-#correct_password = st.secrets.mieai_pw.correct_password
+correct_password = st.secrets.mieai_pw.correct_password
 
 # パスワードの入力フィールドを追加
-#password = st.text_input("パスワードを入力してください", type="password")
+password = st.text_input("パスワードを入力してください", type="password")
 
 # パスワードが正しい場合の処理
-#if password == correct_password:
-   
+if password == correct_password:
+
+openai.api_key = st.secrets.OpenAIAPI.openai_api_key
+
 system_prompt = """
 あなたは優秀な人の悩みを解決するコーチです。
 悩みに対して質問を行ったりして深堀も行ってください。
@@ -66,6 +68,6 @@ if st.session_state["messages"]:
 
         st.write(speaker + ": " + message["content"])
 
-#else:
+else:
     # パスワードが間違っている場合のメッセージを表示
-    #st.write("パスワードが正しくありません。アプリにアクセスするために正しいパスワードを入力してください。")
+    st.write("パスワードが正しくありません。アプリにアクセスするために正しいパスワードを入力してください。")
